@@ -26,7 +26,7 @@ interface NavItem {
 
 interface DashboardLayoutProps {
   children: ReactNode;
-  userRole: "student" | "teacher" | "admin";
+  userRole: "student" | "teacher" | "admin" | "finance" | "registrar";
   userName: string;
 }
 
@@ -68,9 +68,30 @@ export default function DashboardLayout({ children, userRole, userName }: Dashbo
     { label: "System Settings", icon: <Settings className="w-5 h-5" />, path: "/admin/settings" },
   ];
 
-  const navItems = 
+  const financeNavItems: NavItem[] = [
+    { label: "Dashboard", icon: <LayoutDashboard className="w-5 h-5" />, path: "/finance" },
+    { label: "Student Accounts", icon: <Users className="w-5 h-5" />, path: "/finance/students" },
+    { label: "Payments & Billing", icon: <DollarSign className="w-5 h-5" />, path: "/finance/payments" },
+    { label: "Financial Reports", icon: <FileText className="w-5 h-5" />, path: "/finance/reports" },
+    { label: "Notifications", icon: <Bell className="w-5 h-5" />, path: "/finance/notifications" },
+    { label: "Profile", icon: <User className="w-5 h-5" />, path: "/finance/profile" },
+  ];
+
+  const registrarNavItems: NavItem[] = [
+    { label: "Dashboard", icon: <LayoutDashboard className="w-5 h-5" />, path: "/registrar" },
+    { label: "Student Records", icon: <Users className="w-5 h-5" />, path: "/registrar/students" },
+    { label: "Enrollment Management", icon: <Calendar className="w-5 h-5" />, path: "/registrar/enrollment" },
+    { label: "Grades Management", icon: <GraduationCap className="w-5 h-5" />, path: "/registrar/grades" },
+    { label: "Course Management", icon: <BookOpen className="w-5 h-5" />, path: "/registrar/courses" },
+    { label: "Notifications", icon: <Bell className="w-5 h-5" />, path: "/registrar/notifications" },
+    { label: "Profile", icon: <User className="w-5 h-5" />, path: "/registrar/profile" },
+  ];
+
+  const navItems =
     userRole === "student" ? studentNavItems :
     userRole === "teacher" ? teacherNavItems :
+    userRole === "finance" ? financeNavItems :
+    userRole === "registrar" ? registrarNavItems :
     adminNavItems;
 
   const handleLogout = () => {

@@ -3,6 +3,8 @@ import LoginPage from "./pages/LoginPage";
 import StudentDashboard from "./pages/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import FinanceDashboard from "./pages/FinanceDashboard";
+import RegistrarDashboard from "./pages/RegistrarDashboard";
 import EnrollmentPage from "./pages/EnrollmentPage";
 import GradesPage from "./pages/GradesPage";
 import TuitionPage from "./pages/TuitionPage";
@@ -10,6 +12,12 @@ import EvaluationPage from "./pages/EvaluationPage";
 import AnalyticsPage from "./pages/AnalyticsPage";
 import StudentListPage from "./pages/StudentListPage";
 import CourseManagementPage from "./pages/CourseManagementPage";
+import FinanceStudentAccountsPage from "./pages/FinanceStudentAccountsPage";
+import FinancePaymentsBillingPage from "./pages/FinancePaymentsBillingPage";
+import FinanceReportsPage from "./pages/FinanceReportsPage";
+import RegistrarStudentRecordsPage from "./pages/RegistrarStudentRecordsPage";
+import NotificationsPage from "./pages/NotificationsPage";
+import ProfilePage from "./pages/ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -83,5 +91,57 @@ export const router = createBrowserRouter([
   {
     path: "/admin/financial",
     Component: TuitionPage,
+  },
+  {
+    path: "/finance",
+    Component: FinanceDashboard,
+  },
+  {
+    path: "/finance/students",
+    Component: FinanceStudentAccountsPage,
+  },
+  {
+    path: "/finance/payments",
+    Component: FinancePaymentsBillingPage,
+  },
+  {
+    path: "/finance/reports",
+    Component: FinanceReportsPage,
+  },
+  {
+    path: "/finance/notifications",
+    Component: () => <NotificationsPage userRole="finance" userName="Finance Officer" />,
+  },
+  {
+    path: "/finance/profile",
+    Component: () => <ProfilePage userRole="finance" userName="Finance Officer" />,
+  },
+  {
+    path: "/registrar",
+    Component: RegistrarDashboard,
+  },
+  {
+    path: "/registrar/students",
+    Component: RegistrarStudentRecordsPage,
+  },
+  {
+    path: "/registrar/enrollment",
+    Component: EnrollmentPage,
+  },
+  {
+    path: "/registrar/grades",
+    Component: GradesPage,
+  },
+  {
+    path: "/registrar/courses",
+    Component: CourseManagementPage,
+  },
+  {
+    path: "/registrar/notifications",
+    Component: () => <NotificationsPage userRole="registrar" userName="Registrar Officer" />,
+  },
+  {
+    path: "/registrar/profile",
+    Component: () => <ProfilePage userRole="registrar" userName="Registrar Officer" />,
   },
 ]);

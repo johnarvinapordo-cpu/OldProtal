@@ -15,7 +15,7 @@ export default function LoginPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simple demo login - redirect based on user type
     if (userType === "student") {
       navigate("/student");
@@ -23,6 +23,10 @@ export default function LoginPage() {
       navigate("/teacher");
     } else if (userType === "admin") {
       navigate("/admin");
+    } else if (userType === "finance") {
+      navigate("/finance");
+    } else if (userType === "registrar") {
+      navigate("/registrar");
     }
   };
 
@@ -59,6 +63,8 @@ export default function LoginPage() {
                     <SelectItem value="student">Student</SelectItem>
                     <SelectItem value="teacher">Teacher / Employee</SelectItem>
                     <SelectItem value="admin">Administrator</SelectItem>
+                    <SelectItem value="finance">Finance Office</SelectItem>
+                    <SelectItem value="registrar">Registrar Office</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
